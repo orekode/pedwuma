@@ -1,0 +1,11 @@
+
+(Customer Job Upload) Jobs_Upload : Contains jobs uploaded by customers,
+
+(booking_profile) Handyman Jobs Upload: Handymen available for booking,
+
+Customer Jobs Applied: booking made by customers (bookings),
+Handyman Jobs Applied: applications made by handymen (applications)
+
+
+
+

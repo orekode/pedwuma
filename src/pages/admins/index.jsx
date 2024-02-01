@@ -1,0 +1,13 @@
+export { default as Dashbaord    } from './Dashboard';
+export { default as Jobs         } from './Jobs';
+export { default as Job          } from './Job';
+export { default as Bookings     } from './Bookings';
+export { default as Booking      } from './Booking';
+export { default as Plans        } from './Plans';
+export { default as NewPlan      } from './NewPlan';
+export { default as EditPlan     } from './EditPlan';
+export { default as Categories   } from './Categories';
+export { default as NewCategory  } from './NewCategory';
+export { default as EditCategory } from './EditCategory';
+export { default as Users        } from './Users';
+export { default as EditUser     } from './EditUser';

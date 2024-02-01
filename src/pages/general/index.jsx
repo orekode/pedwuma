@@ -1,0 +1,14 @@
+export { default as Home            }           from './Home';
+export { default as Workers         }           from './Workers';
+export { default as Worker          }           from './Worker';
+export { default as Jobs            }           from './Jobs';
+export { default as Job             }           from './Job';
+export { default as Services        }           from './Services';
+export { default as ServiceWorkers  }           from './ServiceWorkers';
+export { default as CategoryWorkers }           from './CategoryWorkers';
+export { default as Login           }           from './Login';
+export { default as Signup          }           from './Signup';
+export { default as ResetPassword   }           from './ResetPassword';
+export { default as Chat            }           from './Chat';
+export { default as Faq             }           from './Faq';
+export { default as TsAndCs         }           from './TsAndCs';

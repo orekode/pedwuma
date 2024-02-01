@@ -1,0 +1,86 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+    transition: .3s;
+    scroll-behavior: smooth;
+}
+
+.orb {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.tit {
+    font-family: 'Titillium Web' ,sans-serif;
+}
+
+.dashboard {
+    --menu: 200px;
+    width: 100vw;
+}
+
+.dashboard.active {
+    width: calc(100vw + var(--menu));
+    --bg: #2222223c;
+}
+
+.dashboard .menu {
+    width: var(--menu);
+}
+
+.dashboard .content-area {
+    width: calc(100% - var(--menu));
+}
+
+.splitboard {
+    --width: 300px;
+}
+
+.splitboard .left {
+    width: var(--width);
+}
+
+.splitboard .right {
+    width: calc(100% - var(--width));
+}
+
+@media only screen and (max-width: 1185px) {
+    
+    .splitboard .left {
+        position: absolute;
+    }
+
+    .splitboard .right {
+        width: 100%;
+    }
+    
+}
+
+.grid-box-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax( var(--width), 1fr));
+}
+
+.grid-box-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax( var(--width), 1fr));
+}
+
+[class *= "grid-box-"] > * {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1165px) {
+    .dashboard {
+        width: calc(100vw + var(--menu));
+    }
+
+    .dashboard.active {
+        width: 100vw;
+    }
+}
+
