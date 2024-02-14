@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 import { where, or, limit } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-import { FormControl, InputLabel, OutlinedInput, InputAdornment, Skeleton } from "@mui/material";
+import { FormControl, InputLabel, OutlinedInput, InputAdornment, Skeleton, Select, MenuItem } from "@mui/material";
 
 import { Btn, Loading } from "components/";
 
@@ -27,7 +27,8 @@ import { toggleChat, setChatFocus, setRecipient } from "../../config/general";
 
 let minDate = new Date();
 let maxDate = new Date();
-maxDate.setFullYear(maxDate.getFullYear + 1);
+maxDate.setDate(maxDate.getDate() + 7);
+console.log(maxDate);
 
 export default function () {
 
@@ -232,6 +233,44 @@ export default function () {
                             <h3 className="font-semibold orb mb-5">Booking Information</h3>
 
                             <form className="my-3">
+                                <div className="grid mb-6">
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">Address Type</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={inputs.addressType ?? "Home"}
+                                            label="Address Type"
+                                            onChange={(addressType) => setInputs({...inputs, addressType })}
+                                        >
+                                            <MenuItem value={"Home"}>Home</MenuItem>
+                                            <MenuItem value={"Hotel"}>Hotel</MenuItem>
+                                            <MenuItem value={"Office"}>Office</MenuItem>
+                                            <MenuItem value={"Hostel"}>Hostel</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </div>
+
+                                <div className="grid mb-6">
+                                    <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">Region</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-label"
+                                            id="demo-simple-select"
+                                            value={inputs.addressType ?? "Home"}
+                                            label="Address Type"
+                                            onChange={(addressType) => setInputs({...inputs, addressType })}
+                                        >
+                                            <MenuItem value={"Home"}>Home</MenuItem>
+                                            <MenuItem value={"Hotel"}>Hotel</MenuItem>
+                                            <MenuItem value={"Office"}>Office</MenuItem>
+                                            <MenuItem value={"Hostel"}>Hostel</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </div>
+
+                                
+
                                 <div className="grid mb-6">
                                     <LocationSearch
                                         typingCallback={(address) => { setInputs({ ...inputs, address }); setLocation({}); }}

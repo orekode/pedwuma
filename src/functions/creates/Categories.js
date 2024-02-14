@@ -45,15 +45,17 @@ export const newService = async (category, service) => {
 
     try {
 
-        const imageUrl = await uploadFile(`categories/services/${service.title}`, service.image);
+        // const imageUrl = await uploadFile(`categories/services/${service.title}`, service.image);
     
         const categoryRef = doc( db, "Category", category );
     
         await updateDoc(categoryRef, {
-            "Services Provided" : arrayUnion({
-                "Title": service.title,
-                "Pic": imageUrl
-            })
+            // "Services Provided" : arrayUnion({
+            //     "Title": service.title,
+            //     "Pic": imageUrl
+            // })
+
+            "Services Provided" : arrayUnion(service.title)
         })
     
         return true;

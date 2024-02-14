@@ -31,7 +31,11 @@ export const editCategory = async (categoryInputs) => {
         });
 
 
-        categoryInputs.services.filter( service => typeof(service.image) !== "undefined").map( async service => {
+        // categoryInputs.services.filter( service => typeof(service.image) !== "undefined").map( async service => {
+        //     await newService(categoryInputs.id, service);
+        // });
+
+        categoryInputs.services.map( async service => {
             await newService(categoryInputs.id, service);
         });
 

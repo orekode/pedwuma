@@ -40,12 +40,10 @@ export default function () {
                 imageUrl: safeGet(data, ["Pic"]),
             });
     
-    
             setServices(safeGet(data, ["Services Provided"]) ? safeGet(data, ["Services Provided"])?.map(service => {
     
                 return {
-                    title: service.Title,
-                    imageUrl: service.Pic
+                    title: service,
                 }
         
             } ).reverse() : []);
@@ -78,6 +76,9 @@ export default function () {
             setLoad(false);
             return false;
         } 
+
+
+        // console.log({...inputs, services, id});
 
         editCategory({...inputs, services, id}).then( result => {
 
@@ -214,7 +215,7 @@ export default function () {
                                         multiline
                                         rows={4}
                                         placeholder="A very short description"
-                                        value={typeof(inputs.description) == "undefined" ? "" : inputs.description}
+                                        value={typeof(inputs.description) != "string" ? "" : inputs.description}
                                         onChange={(e) => setInputs({...inputs, description: e.target.value})}
                                         fullWidth
                                     />
@@ -230,20 +231,20 @@ export default function () {
                                 <h1 className="orb text-xl">Add Services</h1>
                             </div>
 
-                            <div className="text-xs leading-tight mb-6 text-gray-700">Please provide an image, title and description to create this category .</div>
+                            <div className="text-xs leading-tight mb-3 text-gray-700">Please provide a descriptive title create this service.</div>
 
 
                             <div className="">
                                 <div className="flex gap-3">
 
-                                    <ImageSelect initImage={inputs?.serviceImage} callback={(image) => setInputs({...inputs, serviceImage: image})} text="Add Image" imageClass="text-2xl" containerClass="h-[100px] w-[100px]" />
+                                    {/* <ImageSelect initImage={inputs?.serviceImage} callback={(image) => setInputs({...inputs, serviceImage: image})} text="Add Image" imageClass="text-2xl" containerClass="h-[100px] w-[100px]" /> */}
 
-                                    <div className="" style={{width: "calc(100% - 100px)"}}>
+                                    <div className="w-full">
                                         <TextField
                                             id="outlined-multiline-static"
                                             label="Descriptive Title"
                                             multiline
-                                            rows={3}
+                                            rows={1}
                                             placeholder="E.g A category titled 'Painting' can have services titled 'Furniture Painting' or 'Car Body Painting'"
                                             value={typeof(inputs.service) == "undefined" ? "" : inputs.service}
                                             onChange={(e) => setInputs({...inputs, service: e.target.value})}
@@ -266,11 +267,11 @@ export default function () {
                         <div className="grid-box-fill gap-3" style={{"--width": "230px"}}>
                             {services.map( (item, index) => 
                                 <div key={index} className="flex items-center gap-1 my-3 bg-gray-200 p-2 rounded-md relative">
-                                    <div className="h-[85px] w-[85px] border rounded overflow-hidden">
+                                    {/* <div className="h-[85px] w-[85px] border rounded overflow-hidden">
                                         <img src={ typeof(item?.image) !== "undefined" ? URL.createObjectURL(item?.image) : item?.imageUrl} className="object-cover h-full w-full" />
-                                    </div>
-                                    <p className="text-sm mx-3" style={{width: "calc(100% - 85px)"}}>
-                                        {item?.title}
+                                    </div> */}
+                                    <p className="text-sm mx-3 min-h-[20px]" style={{width: "calc(100% - 85px)"}}>
+                                        {item.title}
                                     </p>
                                     <i onClick={() => removeService(item)} className="bi bi-dash text-xl bg-red-500 absolute top-0 right-0 hover:bg-red-600 active:bg-red-700 w-[30px] h-[30px] rounded-md flex items-center justify-center text-white" />    
                                 </div>

@@ -91,7 +91,7 @@ export function Loading() {
 export function Description({ title="", description="", btnText="", image="/images/category.png", topInfo=<><span className="orb">123</span> workers</>, classname="", onBtnClick=()=>{}, ...props }) {
     return (
         <div className={`${classname} h-[400px] max-[1165px]:w-[300px] max-[1165px]:h-[400px] border border-gray-200 shadow-xs hover:shadow-lg bg-white rounded-md overflow-hidden relative group`} {...props}>
-            <div className="image h-[60%] ">
+            <div className="image h-[90%] ">
                 <img src={image} className="object-cover h-full w-full " />
             </div>
             <div className="absolute -bottom-[40px] max-[1165px]:-bottom-[0%] group-hover:bottom-0 max-[1165px]:group-hover:bottom-[40px] border-t left-0 w-full bg-white">
@@ -125,9 +125,9 @@ export function Small({ image="/images/category.png", title="Amasaman, Temah, Ku
 
     return (
         <div onClick={(e) => {onItemSelect(e); }} className={`${containerClass} ${selected ? "border-blue-500" : ""} relative flex border-2 mb-3 rounded-md overflow-hidden bg-white`} {...props}>
-            <div className="image  h-[60px] w-[100px]">
+            {/* <div className="image  h-[60px] w-[100px]">
                 <img src={image} className="object-cover h-full w-full " />
-            </div>
+            </div> */}
             <div className="px-3 py-2 " style={{width: 'calc(100% - 100px)'}}>
                 <div className="text-gray-600 flex items-center gap-2 text-xs">
                     <span className="">{title}</span>
